@@ -23,16 +23,3 @@ char* my_replace_char(char *origin, char toFind, char toReplace){
 
     return origin;
 }
-
-int main(int ac, char **av){
-    char *str = "bienvenue à epitch !";
-    char *res = my_replace_char(str, 'e', 'a');
-
-    if (!res) {
-        printf("salut\n");
-    }
-
-    printf("%s\n", res);
-
-    return 0;
-}
