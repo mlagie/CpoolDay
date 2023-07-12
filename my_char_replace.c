@@ -3,18 +3,10 @@
 void print_char(char c);
 void print_number(int num);
 
-int strLen(char* str){
-    int isWord = 1;
+int my_strlen(char* str){
     int nWordLength = 0;
-
-    while (isWord == 1)
-    {
-        if(str[nWordLength] == '\0'){
-            isWord = 0;
-            break;
-        }
-
-        nWordLength ++;
+    for(int i = 0; str[i] != '\0'; i++){
+        nWordLength++;
     }
 
     return nWordLength;
@@ -23,15 +15,24 @@ int strLen(char* str){
 char* my_replace_char(char *origin, char toFind, char toReplace){
     int target = 0;
 
-    while (target < strLen(origin))
-    {
+    for(int i = 0; origin[i] != '\0'; i++){
         if(origin[target] == toFind){
-            print_char(toReplace);
+            origin[target] = toReplace;
         }
-        else{
-            print_char(origin[target]);
-        }
-
-        target ++;
     }
+
+    return origin;
+}
+
+int main(int ac, char **av){
+    char *str = "bienvenue à epitch !";
+    char *res = my_replace_char(str, 'e', 'a');
+
+    if (!res) {
+        printf("salut\n");
+    }
+
+    printf("%s\n", res);
+
+    return 0;
 }
